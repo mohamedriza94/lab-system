@@ -71,48 +71,48 @@
         </div>
     </div>
     {{-- Doctor table --}}
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Doctors</h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Email</th>
-                                <th>Name</th>
-                                <th>NIC</th>
-                                <th>Date of Birth</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($doctors as $doctor)
-                            <tr>
-                                <td>{{ $doctor->email }}</td>
-                                <td>{{ $doctor->name }}</td>
-                                <td>{{ $doctor->nic }}</td>
-                                <td>{{ $doctor->dateOfBirth }}</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="{{ route('administrator.doctor.edit', ['id' => $doctor->id]) }}" class="btn btn-sm btn-primary">Edit</a>
-                                        <form action="{{ route('administrator.doctor.delete', ['id' => $doctor->id]) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Doctors</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Name</th>
+                                    <th>NIC</th>
+                                    <th>Date of Birth</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($doctors as $doctor)
+                                <tr>
+                                    <td>{{ $doctor->email }}</td>
+                                    <td>{{ $doctor->name }}</td>
+                                    <td>{{ $doctor->nic }}</td>
+                                    <td>{{ $doctor->dateOfBirth }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{ route('administrator.doctor.edit', ['id' => $doctor->id]) }}" class="btn btn-sm btn-primary">Edit</a>
+                                            <form action="{{ route('administrator.doctor.delete', ['id' => $doctor->id]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
 @endsection

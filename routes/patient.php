@@ -17,8 +17,12 @@ Route::group([
 
             //page routes
             Route::get('/', 'PageController@dashboard')->name('patient.dashboard');
-            Route::get('/appointment', 'PageController@appointment')->name('patient.appointment');
             Route::get('/test', 'PageController@test')->name('patient.test');
+
+            //Appointments
+            Route::get('/appointments', 'AppointmentController@viewAppointments')->name('patient.appointments');
+            Route::post('/bookAppointment', 'AppointmentController@bookAppointment')->name('patient.appointments.book');
+            Route::post('/cancelAppointment', 'AppointmentController@cancelAppointment')->name('patient.appointments.cancel');
         });
     });
 });

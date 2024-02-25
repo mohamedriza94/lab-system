@@ -21,4 +21,9 @@ class Doctor extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

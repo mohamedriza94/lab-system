@@ -63,7 +63,7 @@
                     <ul id="sidebarnav">
                         @auth('patient')
                         <li><a class="waves-effect waves-dark" href="{{ route('patient.dashboard') }}">Dashboard</a></li>
-                        <li><a class="waves-effect waves-dark" href="javascript:void(0)">My Appointments</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ route('patient.appointments') }}">My Appointments</a></li>
                         <li><a class="waves-effect waves-dark" href="javascript:void(0)">My Tests</a></li>
                         @endauth
                     </ul>

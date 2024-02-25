@@ -14,6 +14,7 @@ Route::group([
             //page routes
             Route::get('/', 'PageController@dashboard')->name('doctor.dashboard');
 
+            Route::get('/assignments', 'AssignmentController@getAssignments')->name('doctor.assignments');
         });
     });
 });

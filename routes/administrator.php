@@ -32,6 +32,11 @@ Route::group([
 
             // Patient management
             Route::get('/patients', 'PatientController@viewAllPatients')->name('administrator.patients');
+
+            // Appointment management
+            Route::get('/appointments', 'AppointmentController@getAppointments')->name('administrator.appointments');
+            Route::post('/appointments/{id}/assign-doctor', 'AppointmentController@assignDoctor')->name('administrator.appointments.assignDoctor');
+
         });
     });
 });

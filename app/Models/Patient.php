@@ -17,4 +17,9 @@ class Patient extends Authenticatable
         'dateOfBirth',
         'password',
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

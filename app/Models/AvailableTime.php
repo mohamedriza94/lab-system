@@ -17,4 +17,9 @@ class AvailableTime extends Model
         'status',
         'patient_id'
     ];
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }
