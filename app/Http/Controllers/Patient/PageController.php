@@ -12,4 +12,10 @@ class PageController extends Controller
     public function register(){
         return view('patient.register');
     }
+    public function appointment(){
+        return view('patient.appointment');
+    }
+    public function test(){
+        return view('patient.test');
+    }
 }

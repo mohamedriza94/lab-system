@@ -1,10 +1,12 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
+
 Route::group([
-    'prefix'=>'patient',
-    'namespace'=>'App\Http\Controllers\Patient',
-    'middleware'=>['web']
-], function(){
+    'prefix' => 'patient',
+    'namespace' => 'App\Http\Controllers\Patient',
+    'middleware' => ['web']
+], function () {
     Route::get('/register', 'PageController@Register')->name('patient.register');
     Route::post('/register', 'PatientController@Register')->name('patient.register.submit');
     Route::get('/', 'LoginController@showLoginForm')->name('patient.login');
@@ -15,7 +17,8 @@ Route::group([
 
             //page routes
             Route::get('/', 'PageController@dashboard')->name('patient.dashboard');
-
+            Route::get('/appointment', 'PageController@appointment')->name('patient.appointment');
+            Route::get('/test', 'PageController@test')->name('patient.test');
         });
     });
 });
