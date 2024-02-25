@@ -43,14 +43,16 @@
                     <div class="user-pro-body">
                         <div class="dropdown">
                             <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                @auth('administrator')
-                                Admin
+
+                                @auth('patient')
+                                {{ Auth::guard('patient')->user()->name }}
                                 @endauth
                                 <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu animated flipInY">
-                                @auth('administrator')
-                                <a href="{{ route('administrator.logout') }}" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+
+                                @auth('patient')
+                                <a href="{{ route('patient.logout') }}" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
                                 @endauth
                             </div>
                         </form>
@@ -59,11 +61,10 @@
 
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        @auth('administrator')
-                        <li><a class="waves-effect waves-dark" href="{{ route('administrator.dashboard') }}">Dashboard</a></li>
-                        <li><a class="waves-effect waves-dark" href="javascript:void(0)">Patients</a></li>
-                        <li><a class="waves-effect waves-dark" href="javascript:void(0)">Appointments</a></li>
-                        <li><a class="waves-effect waves-dark" href="javascript:void(0)">Doctors</a></li>
+                        @auth('patient')
+                        <li><a class="waves-effect waves-dark" href="{{ route('patient.dashboard') }}">Dashboard</a></li>
+                        <li><a class="waves-effect waves-dark" href="javascript:void(0)">My Appointments</a></li>
+                        <li><a class="waves-effect waves-dark" href="javascript:void(0)">My Tests</a></li>
                         @endauth
                     </ul>
                 </nav>

@@ -9,4 +9,7 @@ class PageController extends Controller
     public function dashboard(){
         return view('patient.dashboard');
     }
+    public function register(){
+        return view('patient.register');
+    }
 }

@@ -15,9 +15,6 @@ class Patient extends Authenticatable
         'nic',
         'age',
         'dateOfBirth',
-    ];
-
-    protected $hidden = [
         'password',
     ];
 }

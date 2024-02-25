@@ -18,9 +18,28 @@
     <section id="wrapper" class="login-register login-sidebar" style="background-image:url({{ asset('assets/images/background/login-register.jpg') }});">
         <div class="login-box card">
             <div class="card-body">
-                <form class="form-horizontal form-material text-center" id="loginform" action="{{ route('patient.login.submit') }}">
+                <form class="form-horizontal form-material text-center" id="loginform" action="{{ route('patient.login.submit') }}" method="POST">
                     @csrf
                     <a class="db"><h3><b>PATIENT PORTAL</b></h3></a>
+
+                    <!-- Error Alert -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <!-- Success Alert -->
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <div class="form-group m-t-40">
                         <div class="col-xs-12">
                             <input class="form-control" type="text" name="email" required="" placeholder="Username">

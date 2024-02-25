@@ -6,6 +6,7 @@ Route::group([
     'middleware'=>['web']
 ], function(){
     Route::get('/register', 'PageController@Register')->name('patient.register');
+    Route::post('/register', 'PatientController@Register')->name('patient.register.submit');
     Route::get('/', 'LoginController@showLoginForm')->name('patient.login');
     Route::post('/', 'LoginController@validateLogin')->name('patient.login.submit');
     Route::group(['middleware' => ['auth:patient']], function () {
