@@ -15,6 +15,12 @@ Route::group([
             Route::get('/', 'PageController@dashboard')->name('doctor.dashboard');
 
             Route::get('/assignments', 'AssignmentController@getAssignments')->name('doctor.assignments');
+
+            Route::post('/viewTestAppointment/{id}', 'AssignmentController@viewAppointmentTest')->name('doctor.appointments.test');
+            Route::post('/appointments/test', 'AssignmentController@storeTest')->name('doctor.appointments.test.store');
+
+            Route::get('/tests', 'TestsController@tests')->name('doctor.tests');
+
         });
     });
 });

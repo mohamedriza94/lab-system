@@ -22,7 +22,7 @@
                         </ul>
                     </div>
                     @endif
-                    <form method="post" action="{{ route('patient.appointments.book') }}">
+                    <form id="appointmentForm" method="post" action="{{ route('patient.appointments.book') }}">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -41,6 +41,40 @@
                                     <label for="note">Note</label>
                                 </div>
                             </div>
+                            <!-- New Fields for Card Details -->
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="card_holder_name" name="card_holder_name">
+                                    <label for="card_holder_name">Card Holder Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="card_number" name="card_number">
+                                    <label for="card_number">Card Number</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="cvv" name="cvv">
+                                    <label for="cvv">CVV</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="expiry_date" name="expiry_date">
+                                    <label for="expiry_date">Expiry Date (MM/YYYY)</label>
+                                </div>
+                            </div>
+                            <!-- End of New Fields -->
+                            <!-- Display Total Payable -->
+                            <div class="col-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="total_payable" name="total_payable" value="1000" readonly>
+                                    <label for="total_payable">Total Payable (LKR)</label>
+                                </div>
+                            </div>
+                            <!-- End of Total Payable -->
                             <div class="col-12">
                                 <div class="ms-auto mt-3 mt-md-0">
                                     <button type="submit" class="btn btn-primary text-white">Book Appointment</button>
@@ -52,6 +86,14 @@
             </div>
         </div>
     </div>
+
+    @php
+    // PHP function to generate random price in thousands LKR
+    function generateRandomPrice() {
+        return rand(10, 100) * 1000;
+    }
+    @endphp
+
 
     {{-- Appointment table --}}
     <div class="row">
@@ -105,5 +147,31 @@
 @endsection
 
 @section('scripts')
+<script>
+    // JavaScript Validation Functions
+    function validateCardDetails() {
+        // You can implement your validation logic here
+        // For simplicity, let's assume all fields are required
+        var cardHolderName = document.getElementById('card_holder_name').value;
+        var cardNumber = document.getElementById('card_number').value;
+        var cvv = document.getElementById('cvv').value;
+        var expiryDate = document.getElementById('expiry_date').value;
 
+        if (cardHolderName.trim() === '' || cardNumber.trim() === '' || cvv.trim() === '' || expiryDate.trim() === '') {
+            alert('All card details are required.');
+            return false;
+        }
+
+        // You can add more validation rules as per your requirement
+
+        return true;
+    }
+
+    // Event listener for form submission
+    document.getElementById('appointmentForm').addEventListener('submit', function (event) {
+        if (!validateCardDetails()) {
+            event.preventDefault(); // Prevent form submission if validation fails
+        }
+    });
+</script>
 @endsection

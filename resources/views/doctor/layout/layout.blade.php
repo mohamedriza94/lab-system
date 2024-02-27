@@ -64,7 +64,7 @@
                         @auth('doctor')
                         <li><a class="waves-effect waves-dark" href="{{ route('doctor.dashboard') }}">Dashboard</a></li>
                         <li><a class="waves-effect waves-dark" href="{{ route('doctor.assignments') }}">Assignments</a></li>
-                        <li><a class="waves-effect waves-dark" href="javascript:void(0)">My Tests</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ route('doctor.tests') }}">My Tests</a></li>
                         @endauth
                     </ul>
                 </nav>

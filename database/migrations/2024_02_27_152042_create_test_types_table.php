@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('test_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('appointment_id')->nullable();
-            $table->foreignId('test_type_id')->constrained();
-            $table->string('result')->nullable();
-            $table->text('notes')->nullable();
+            $table->string('name'); // Name of the medical test
+            $table->text('description')->nullable(); // Description of the medical test (optional)
+            $table->decimal('price', 10, 2)->default(0); // Price of the medical test
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('test_types');
     }
 };
