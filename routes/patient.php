@@ -22,7 +22,7 @@ Route::group([
             //Appointments
             Route::get('/appointments', 'AppointmentController@viewAppointments')->name('patient.appointments');
             Route::post('/bookAppointment', 'AppointmentController@bookAppointment')->name('patient.appointments.book');
-            Route::post('/cancelAppointment', 'AppointmentController@cancelAppointment')->name('patient.appointments.cancel');
+            Route::post('/cancelAppointment/{id}', 'AppointmentController@cancelAppointment')->name('patient.appointments.cancel');
 
             //Tests
             Route::get('/tests', 'TestsController@tests')->name('patient.tests');

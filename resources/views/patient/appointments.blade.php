@@ -130,7 +130,6 @@
                                     <td>
                                         <form action="{{ route('patient.appointments.cancel', ['id' => $appointment->id]) }}" method="POST">
                                             @csrf
-                                            @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
                                         </form>
                                     </td>
