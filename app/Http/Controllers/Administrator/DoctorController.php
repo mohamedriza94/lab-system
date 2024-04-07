@@ -43,14 +43,14 @@ class DoctorController extends Controller
         $doctor->save();
 
         //Mailing Credentials
-        // $data["email"] = $request->input('email');
-        // $data["title"] = "Lab Doctor Credentials";
-        // $data["password"] = $password;
+        $data["email"] = $request->input('email');
+        $data["title"] = "Lab Doctor Credentials";
+        $data["password"] = $password;
 
-        // Mail::send('mail.doctorCredentials', $data, function($message)use($data) {
-        //     $message->to($data["email"], $data["email"])
-        //     ->subject($data["title"]);
-        // });
+        Mail::send('mail.doctorCredentials', $data, function($message)use($data) {
+            $message->to($data["email"], $data["email"])
+            ->subject($data["title"]);
+        });
 
 
         return redirect()->route('administrator.doctors')->with('success', 'Doctor added successfully.');

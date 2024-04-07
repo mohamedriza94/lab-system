@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\Test;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,6 +71,11 @@ class AssignmentController extends Controller
             'test_result' => 'required|in:success,failure',
             'test_notes' => 'nullable|string|max:255',
         ]);
+
+        // Update appointment status
+        $appointment = Appointment::findOrFail($request->appointment_id);
+        $appointment->status = 'completed';
+        $appointment->save();
 
         // Create a new test
         $test = new Test();

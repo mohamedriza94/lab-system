@@ -128,10 +128,12 @@
                                     </td>
                                     <td>{{ $appointment->doctor_name ?? 'NOT ASSIGNED' }}</td>
                                     <td>
+                                        @if($appointment->status == 'pending')
                                         <form action="{{ route('patient.appointments.cancel', ['id' => $appointment->id]) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
                                         </form>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

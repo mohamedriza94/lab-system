@@ -8,6 +8,9 @@ Route::group([
     'middleware' => ['web']
 ], function () {
     Route::get('/register', 'PageController@Register')->name('patient.register');
+    Route::get('/passwordChange', 'PageController@PasswordChange')->name('patient.passwordChange');
+    Route::post('/passwordChange', 'PasswordController@passwordChangeVerify')->name('patient.passwordChange.verify');
+    Route::post('/passwordChange/otp', 'PasswordController@verifyOTP')->name('patient.passwordChange.otp.verify');
     Route::post('/register', 'PatientController@Register')->name('patient.register.submit');
     Route::get('/', 'LoginController@showLoginForm')->name('patient.login');
     Route::post('/', 'LoginController@validateLogin')->name('patient.login.submit');

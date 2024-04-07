@@ -49,6 +49,9 @@ class PageController extends Controller
     public function register(){
         return view('patient.register');
     }
+    public function passwordChange(){
+        return view('patient.passwordChange');
+    }
     public function appointment(){
         return view('patient.appointment');
     }

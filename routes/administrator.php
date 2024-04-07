@@ -37,6 +37,13 @@ Route::group([
             Route::get('/appointments', 'AppointmentController@getAppointments')->name('administrator.appointments');
             Route::post('/appointments/{id}/assign-doctor', 'AppointmentController@assignDoctor')->name('administrator.appointments.assignDoctor');
 
+            // Test Types management
+            Route::get('/testTypes', 'TestTypesController@getTestTypes')->name('administrator.testTypes');
+            Route::post('/testTypeAdd', 'TestTypesController@addTestType')->name('administrator.testType.add');
+            Route::put('/testTypeUpdate/{id}', 'TestTypesController@updateTestType')->name('administrator.testType.update');
+            Route::get('/testTypeList', 'TestTypesController@viewAllTestTypes')->name('administrator.testType');
+            Route::get('/testTypeShow/{id}', 'TestTypesController@viewTestType')->name('administrator.testType.show');
+            Route::get('/testTypeEdit/{id}', 'TestTypesController@viewTestType')->name('administrator.testType.edit');
         });
     });
 });

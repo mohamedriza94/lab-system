@@ -65,6 +65,7 @@
                         <li><a class="waves-effect waves-dark" href="{{ route('administrator.appointments') }}">Appointments</a></li>
                         <li><a class="waves-effect waves-dark" href="{{ route('administrator.doctors') }}">Doctors</a></li>
                         <li><a class="waves-effect waves-dark" href="{{ route('administrator.availableTime') }}">Available Times</a></li>
+                        <li><a class="waves-effect waves-dark" href="{{ route('administrator.testTypes') }}">Test Types</a></li>
                         @endauth
                     </ul>
                 </nav>

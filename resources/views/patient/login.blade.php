@@ -59,6 +59,9 @@
                         <div class="col-sm-12 text-center">
                             Don't have an account? <a href="{{ route('patient.register') }}" class="text-primary m-l-5"><b>Register</b></a>
                         </div>
+                        {{-- <div class="col-sm-12 text-center">
+                            Forgot password? <a href="{{ route('patient.passwordChange') }}" class="text-primary m-l-5"><b>Reset Password</b></a>
+                        </div> --}}
                     </div>
 
                     <div class="form-group m-b-0">
